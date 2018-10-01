@@ -161,13 +161,14 @@
       },
       // 生成table html email content
       generateHtml(th,item){
-        let html = ['<table>','</table>'];
+        let html = ['<table style="border-bottom:1px solid #eee;border-right:1px solid #eee;border-spacing:0;text-align:center">','</table>'];
+        let style = 'padding:10px;border-top:1px solid #eee;border-left:1px solid #eee';
         let row = ['<tr>','</tr>'];
         let header = row.join(th.reduce((sum,d)=>{
-          return sum + '<td>' + d + '</td>';
+          return sum + '<td style="'+style +'">' + d + '</td>';
         },''));
         let data = row.join(th.reduce((sum,d)=>{
-          return sum + '<td>' + item[d] + '</td>';
+          return sum + '<td style="'+style +'">' + item[d] + '</td>';
         },''));
         html = html.join(header+data);
         return html;
